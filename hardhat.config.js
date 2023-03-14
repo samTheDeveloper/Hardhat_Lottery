@@ -5,8 +5,7 @@ require("@nomiclabs/hardhat-ethers");
 require('hardhat-deploy');
 require("@nomiclabs/hardhat-ethers");
 require("hardhat-deploy-ethers");
-// require("@symfoni/hardhat-react");
-// require("hardhat-typechain");
+
 require("@typechain/ethers-v5");
 const {config} = require("dotenv");
 
@@ -15,66 +14,12 @@ config();
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
 
-  networks: {
-    localhost: {
-      url: "http://127.0.0.1:8545",
-      live: false,
-      saveDeployments: true,
-      tags: ["local"]
-    },
-
-    hardhat: {
-      live: false,
-      saveDeployments: true,
-      tags: ["test", "local"]
-    },
-
-    alfajores: {
-      url: "https://alfajores-forno.celo-testnet.org",
-      accounts: [`${process.env.PRIVATE_KEY}`],
-      chainId: 44787,
-    },
- 
-    celo: {
-      url: "https://forno.celo.org",
-      accounts: [`${process.env.PRIVATE_KEY}`],
-      chainId: 42220,
-    },
-
-  },
-
   solidity: {
     version: "0.8.9",
-    settings: {          // See the solidity docs for advice about optimization and evmVersion
-      optimizer: {
-        enabled: true,
-        runs: 200
-      },
-     }
-  },
+    
+     },
 
-  paths: {
-    deploy: 'deploy',
-    deployments: 'deployments',
-    imports: 'imports'
-  },
 
-  namedAccounts: {
-    deployer: {
-      default: 0,
-      44787: `privatekey://${process.env.PRIVATE_KEY}`,
-    },
-
-    child_1: {
-      default: 1,
-      44787: process.env.CHILD_1,
-    },
-
-    child_2: {
-      default: 2,
-      44787 : `privatekey://${process.env.PRIVATE_KEY}`,
-    }
-  }
 };
 
 
