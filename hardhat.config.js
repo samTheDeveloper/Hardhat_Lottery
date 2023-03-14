@@ -15,7 +15,7 @@ config();
 module.exports = {
 
   solidity: {
-    version: "0.8.9",
+    version: "0.8.7",
     
      },
 
